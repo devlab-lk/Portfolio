@@ -1,51 +1,40 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
-import { GlassCard } from "./ui/GlassCard";
+import { Github, Linkedin, Twitter, Mail, Send } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    <footer id="contact" className="py-24 bg-white dark:bg-black relative overflow-hidden transition-colors duration-300">
         
         <div className="container mx-auto px-6">
             <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                    Ready to create something <br/>
-                    <span className="text-[#004aad]">extraordinary?</span>
+                
+                {/* Hand/Icon */}
+                <div className="mb-8 text-[#004aad]">
+                   <Send className="w-16 h-16" strokeWidth={1.5} />
+                </div>
+
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12">
+                    Send project <br/>
+                    enquiries
                 </h2>
-                <p className="text-xl text-gray-500 mb-12">
-                    Whether you have a project in mind or just want to say hi, I'm always open to discussing new ideas and opportunities.
-                </p>
                 
                 <a 
                     href="mailto:hello@thilina.design" 
-                    className="px-10 py-5 bg-gray-900 text-white rounded-full text-lg font-medium hover:bg-[#004aad] transition-colors shadow-xl shadow-[#004aad]/20 mb-16"
+                    className="inline-flex items-center gap-3 px-8 py-4 border-2 border-gray-200 dark:border-gray-800 rounded-full text-lg font-medium text-gray-900 dark:text-white hover:border-[#004aad] dark:hover:border-[#004aad] hover:text-[#004aad] dark:hover:text-[#004aad] transition-all duration-300 group bg-white dark:bg-gray-900"
                 >
-                    Say Hello
+                    <Mail className="w-5 h-5 text-gray-400 group-hover:text-[#004aad] transition-colors" />
+                    hello@thilina.design
                 </a>
 
-                <div className="flex space-x-8 mb-16">
-                    {[
-                        { icon: Linkedin, href: "#" },
-                        { icon: Twitter, href: "#" },
-                        { icon: Github, href: "#" },
-                        { icon: Mail, href: "#" }
-                    ].map((social, i) => (
-                        <a 
-                            key={i} 
-                            href={social.href}
-                            className="p-3 rounded-full bg-gray-50 text-gray-600 hover:bg-[#004aad]/10 hover:text-[#004aad] transition-colors"
-                        >
-                            <social.icon className="w-6 h-6" />
-                        </a>
-                    ))}
-                </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100 text-sm text-gray-500">
-                <p>© {new Date().getFullYear()} Thilina Jeewantha. All rights reserved.</p>
-                <div className="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" className="hover:text-gray-900">Privacy Policy</a>
-                    <a href="#" className="hover:text-gray-900">Terms of Service</a>
+                <div className="mt-24 pt-12 border-t border-gray-100 dark:border-gray-900 w-full flex flex-col items-center">
+                    <div className="text-[#004aad] font-bold text-2xl mb-4">
+                        Thilina.
+                    </div>
+                    <p className="text-xs font-medium uppercase tracking-widest text-gray-400">
+                        For the love of design
+                    </p>
+                    <p className="text-xs text-gray-300 dark:text-gray-700 mt-2">
+                        © {new Date().getFullYear()}
+                    </p>
                 </div>
             </div>
         </div>

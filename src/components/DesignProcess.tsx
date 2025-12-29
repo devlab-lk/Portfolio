@@ -22,35 +22,35 @@ const steps: Step[] = [
     id: 1, 
     title: "Empathize", 
     description: "AI-analyzed user sentiment & research patterns.",
-    tool: { name: "Perplexity", icon: Search, color: "bg-teal-100 text-teal-700" }
+    tool: { name: "Perplexity", icon: Search, color: "bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300" }
   },
   { 
     id: 2, 
     title: "Define", 
     description: "Predictive problem framing & scope definition.",
-    tool: { name: "n8n", icon: Network, color: "bg-orange-100 text-orange-700" }
+    tool: { name: "n8n", icon: Network, color: "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300" }
   },
   { 
     id: 3, 
     title: "Ideate", 
     description: "Generative AI brainstorming & variation exploration.",
-    tool: { name: "BMAD", icon: Sparkles, color: "bg-purple-100 text-purple-700" }
+    tool: { name: "BMAD", icon: Sparkles, color: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300" }
   },
   { 
     id: 4, 
     title: "Prototype", 
     description: "Rapid component generation & interaction design.",
     tools: [
-      { name: "Figma", icon: PenTool, color: "bg-rose-100 text-rose-700" },
-      { name: "Framer", icon: Frame, color: "bg-gray-100 text-gray-700" },
-      { name: "Webflow", icon: Globe, color: "bg-blue-100 text-blue-700" }
+      { name: "Figma", icon: PenTool, color: "bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300" },
+      { name: "Framer", icon: Frame, color: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300" },
+      { name: "Webflow", icon: Globe, color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300" }
     ]
   },
   { 
     id: 5, 
     title: "Test", 
     description: "Simulated user testing & predictive analytics.",
-    tool: { name: "AutoGPT", icon: ShieldCheck, color: "bg-green-100 text-green-700" }
+    tool: { name: "AutoGPT", icon: ShieldCheck, color: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300" }
   },
 ];
 
@@ -93,7 +93,7 @@ const CyclingToolBadge = ({ tools, delayIndex }: { tools: Tool[], delayIndex: nu
       </AnimatePresence>
       
       {/* Connecting line to circle */}
-      <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-px h-2 bg-gray-300" />
+      <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-px h-2 bg-gray-300 dark:bg-gray-700" />
     </motion.div>
   );
 };
@@ -109,7 +109,7 @@ export const DesignProcess = () => {
   const agentX = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "85%"]);
 
   return (
-    <section id="process" className="py-32 relative bg-gray-50 overflow-hidden" ref={containerRef}>
+    <section id="process" className="py-32 relative bg-gray-50 dark:bg-gray-950 overflow-hidden" ref={containerRef}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center mb-24 max-w-2xl mx-auto">
           <motion.div 
@@ -123,8 +123,8 @@ export const DesignProcess = () => {
             </span>
             AI-Augmented Workflow
           </motion.div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Intelligent Design Process</h2>
-          <p className="text-gray-600 text-lg">Leveraging specialized AI agents to accelerate every stage of the product lifecycle.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">The Intelligent Design Process</h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Leveraging specialized AI agents to accelerate every stage of the product lifecycle.</p>
         </div>
 
         {/* Timeline Container */}
@@ -172,13 +172,13 @@ export const DesignProcess = () => {
                         opacity: { delay: 0.8 + (index * 0.2) },
                         y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }
                       }}
-                      className={`absolute top-[-40px] z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-xl shadow-sm border border-white/50 backdrop-blur-sm ${step.tool.color}`}
+                      className={`absolute top-[-40px] z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-xl shadow-sm border border-white/50 dark:border-white/10 backdrop-blur-sm ${step.tool.color}`}
                     >
                       <step.tool.icon className="w-3.5 h-3.5" />
                       <span className="text-xs font-bold">{step.tool.name}</span>
                       
                       {/* Connecting line to circle */}
-                      <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-px h-2 bg-gray-300" />
+                      <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-px h-2 bg-gray-300 dark:bg-gray-700" />
                     </motion.div>
                    )
                 )}
@@ -187,7 +187,7 @@ export const DesignProcess = () => {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full h-20 w-px bg-gradient-to-b from-transparent to-[#004aad]/20 hidden md:block" />
 
                 {/* Step Circle */}
-                <div className="w-16 h-16 rounded-full bg-white border-4 border-[#004aad]/10 flex items-center justify-center shadow-sm mb-6 group-hover:border-[#004aad]/40 group-hover:scale-110 transition-all duration-500 z-20 relative overflow-hidden">
+                <div className="w-16 h-16 rounded-full bg-white dark:bg-gray-900 border-4 border-[#004aad]/10 dark:border-[#004aad]/20 flex items-center justify-center shadow-sm mb-6 group-hover:border-[#004aad]/40 group-hover:scale-110 transition-all duration-500 z-20 relative overflow-hidden">
                   <span className="text-xl font-bold text-[#004aad] relative z-10">{index + 1}</span>
                   
                   {/* Filling Animation representing data injection */}
@@ -199,8 +199,8 @@ export const DesignProcess = () => {
                   />
                 </div>
                 
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-500 px-2">{step.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 px-2">{step.description}</p>
               </motion.div>
             ))}
           </div>
